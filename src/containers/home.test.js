@@ -7,6 +7,7 @@ describe('Test: <Home/>', () => {
   it('renders correctly', () => {
     const props = {
       messages: {},
+      members: {},
       loadMessages: () => {}
     }
     const tree = shallow(<Home.WrappedComponent {...props} />)

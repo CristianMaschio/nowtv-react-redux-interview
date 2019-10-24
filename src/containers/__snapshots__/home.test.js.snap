@@ -9,13 +9,10 @@ exports[`Test: <Home/> renders correctly 1`] = `
     className="logo"
     src="logo.png"
   />
-  <AutoSizer
-    disableHeight={true}
-    disableWidth={false}
-    onResize={[Function]}
-    style={Object {}}
+  <span
+    className="loading"
   >
-    <Component />
-  </AutoSizer>
+    Loading...
+  </span>
 </div>
 `;
