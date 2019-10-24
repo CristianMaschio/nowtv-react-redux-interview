@@ -1,7 +1,8 @@
 import React from 'react'
+import _ from 'lodash'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import List from 'react-virtualized/dist/commonjs/List'
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer'
 import { loadMessages } from '../action-creators/messages'
@@ -12,13 +13,30 @@ import 'react-virtualized/styles.css'
 import './home.scss'
 
 class Home extends React.PureComponent {
+  state = {
+    messages: { loading: true }
+  }
+
+  // ------------Life Cycle-------------
   componentDidMount() {
     this.props.loadMessages()
     this.props.loadMembers()
   }
 
+  componentDidUpdate(oldProps) {
+    if (!_.isEqual(oldProps.messages, this.props.messages)) {
+      let messages = _.cloneDeep(this.props.messages)
+      // Sort the messages by time
+      messages.messages.sort(
+        (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+      )
+      this.setState({ messages })
+    }
+  }
+
+  // ------------Render Functions-------------
   renderMessage = ({ index, key, style }) => {
-    const messageData = this.props.messages.messages[index]
+    const messageData = this.state.messages.messages[index]
     const messageUser = this.props.members.members[messageData.userId]
 
     return (
@@ -31,8 +49,9 @@ class Home extends React.PureComponent {
     )
   }
 
+  // ------------Render-------------
   render() {
-    const { loading, messages } = this.props.messages
+    const { loading, messages } = this.state.messages
 
     return (
       <div className="home">
@@ -60,6 +79,7 @@ class Home extends React.PureComponent {
   }
 }
 
+// ------------PropTypes-------------
 Home.propTypes = {
   loadMessages: PropTypes.func,
   loadMembers: PropTypes.func,
@@ -72,13 +92,13 @@ Home.propTypes = {
         userId: PropTypes.string.isRequired,
         timestamp: PropTypes.string.isRequired
       })
-    ).isRequired,
+    ),
     error: PropTypes.bool,
     errorMessage: PropTypes.string
   }),
   members: PropTypes.shape({
     loading: PropTypes.bool,
-    members: PropTypes.arrayOf(
+    members: PropTypes.shape(
       PropTypes.shape({
         avatar: PropTypes.string,
         email: PropTypes.string,
@@ -87,7 +107,7 @@ Home.propTypes = {
         ip: PropTypes.string,
         lastName: PropTypes.string
       })
-    ).isRequired,
+    ),
     error: PropTypes.bool,
     errorMessage: PropTypes.string
   })
@@ -97,9 +117,10 @@ Home.defaultProps = {
   loadMessages: () => {},
   loadMembers: () => {},
   messages: { loading: false, messages: [], error: false, errorMessage: '' },
-  members: { loading: false, members: [], error: false, errorMessage: '' }
+  members: { loading: false, members: {}, error: false, errorMessage: '' }
 }
 
+// -------------------------
 const mapStateToProps = state => ({
   messages: state.messages,
   members: state.members

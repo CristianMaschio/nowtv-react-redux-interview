@@ -8,10 +8,12 @@ class Message extends React.PureComponent {
     isHover: false
   }
 
+  // ------------Handle Functions-------------
   handleIsHover = isHover => {
     this.setState({ isHover })
   }
 
+  // ------------Render-------------
   render() {
     const { style, message, user } = this.props
     const { isHover } = this.state
