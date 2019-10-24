@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test: <Message /> renders correctly 1`] = `
+<div
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="message-container"
+  >
+    <div
+      className="message-detail "
+    >
+      <span>
+        jgomezh@cdc.gov
+      </span>
+    </div>
+    <img
+      alt="user avatar"
+      className="avatar"
+      src="http://dummyimage.com/100x100.jpg/dddddd/000000"
+    />
+    <div
+      className="message-text"
+    >
+      Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Test: <Message/> renders correctly 1`] = `
+<div
+  className="home"
+>
+  <img
+    alt="Now TV logo"
+    className="logo"
+    src="logo.png"
+  />
+  <AutoSizer
+    disableHeight={true}
+    disableWidth={false}
+    onResize={[Function]}
+    style={Object {}}
+  >
+    <Component />
+  </AutoSizer>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div>
+  This is Test
+</div>
+`;
