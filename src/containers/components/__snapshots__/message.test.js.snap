@@ -25,32 +25,11 @@ exports[`Test: <Message /> renders correctly 1`] = `
     >
       Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.
     </div>
+    <div
+      className="message-time"
+    >
+      4/14/2016, 5:53:55 PM
+    </div>
   </div>
-</div>
-`;
-
-exports[`Test: <Message/> renders correctly 1`] = `
-<div
-  className="home"
->
-  <img
-    alt="Now TV logo"
-    className="logo"
-    src="logo.png"
-  />
-  <AutoSizer
-    disableHeight={true}
-    disableWidth={false}
-    onResize={[Function]}
-    style={Object {}}
-  >
-    <Component />
-  </AutoSizer>
-</div>
-`;
-
-exports[`renders correctly 1`] = `
-<div>
-  This is Test
 </div>
 `;

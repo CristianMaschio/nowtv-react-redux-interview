@@ -19,9 +19,3 @@ exports[`Test: <Home/> renders correctly 1`] = `
   </AutoSizer>
 </div>
 `;
-
-exports[`renders correctly 1`] = `
-<div>
-  This is Test
-</div>
-`;

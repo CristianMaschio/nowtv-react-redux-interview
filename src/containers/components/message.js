@@ -27,6 +27,9 @@ class Message extends React.PureComponent {
           </div>
           <img className="avatar" src={user.avatar} alt="user avatar" />
           <div className="message-text">{message.message}</div>
+          <div className="message-time">
+            {new Date(message.timestamp).toLocaleString()}
+          </div>
         </div>
       </div>
     )

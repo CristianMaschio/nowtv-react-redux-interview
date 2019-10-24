@@ -46,7 +46,7 @@ class Home extends React.PureComponent {
           <AutoSizer disableHeight>
             {({ width }) => (
               <List
-                height={400}
+                height={500}
                 rowHeight={70}
                 rowRenderer={this.renderMessage}
                 width={width}
