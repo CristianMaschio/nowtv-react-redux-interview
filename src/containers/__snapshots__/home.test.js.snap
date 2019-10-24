@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test: <Home/> renders correctly 1`] = `
+<div
+  className="home"
+>
+  <img
+    alt="Now TV logo"
+    className="logo"
+    src="logo.png"
+  />
+  <AutoSizer
+    disableHeight={true}
+    disableWidth={false}
+    onResize={[Function]}
+    style={Object {}}
+  >
+    <Component />
+  </AutoSizer>
+</div>
+`;
+
 exports[`renders correctly 1`] = `
 <div>
   This is Test
